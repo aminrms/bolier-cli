@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import { Command } from "commander";
 import { listTemplate } from "../lib/commands/list.js";
+import { Command } from "commander";
 import { useTemplate } from "../lib/commands/use.js";
 import chalk from "chalk";
 const program = new Command();
@@ -13,6 +13,7 @@ program
 // Define the `list` command
 program
   .command("list")
+  .alias("ls")
   .description("List all available boilerplates")
   .action(() => {
     listTemplate();
@@ -25,5 +26,6 @@ program
   .action((template) => {
     useTemplate(template);
   });
+
 
 program.parse(process.argv);
